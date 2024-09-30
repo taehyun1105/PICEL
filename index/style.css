@@ -1,0 +1,255 @@
+:root {
+    --body: #EEEEEE;
+    --bg: #F8F8F8;
+    --txt: #040404;
+    --point: #4DB6AC;
+    --point-hover: #00695C;
+    --hover: #E0E0E0;
+}
+
+[data-theme="dark"] {
+    --body: #292929;
+    --bg: #1B1B1B;
+    --txt: #F8F8F8;
+    --point: #A1D6DE;
+    --point-hover: #45A3B2;
+    --hover: #323232;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    background-color: var(--bg);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    min-height: 100vh;
+    width: 100%;
+    user-select: none;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg);
+    height: 60%;
+    width: 50%;
+}
+
+.left-panel, .right-panel {
+    flex: 1;
+    color: var(--txt);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left-panel {
+    border-right: 1px solid var(--txt);
+    padding-right: 10%;
+}
+
+.left-panel h1 {
+    margin-top: 0;
+    font-size: 100px;
+    font-weight: bold;
+    background: linear-gradient(45deg, var(--point-hover), var(--point));
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-animation 10s ease infinite;
+}
+
+.left-panel h2 {
+    color: var(--point-hover);
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+.right-panel {
+    padding-left: 18%;
+}
+
+.right-panel h2 {
+    color: var(--point-hover);
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 50px;
+}
+
+.right-panel h6 {
+    font-size: 14px;
+    font-weight: 500;
+}
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--txt);
+    padding-bottom: 10px;
+}
+
+.input-container img {
+    padding-right: 10px;
+}
+
+.username, .password, .confirm-password {
+    flex: 1;
+    border: none;
+    font-size: 16px;
+    padding-bottom: 10px;
+    outline: none;
+    color: var(--txt);
+    background-color: var(--bg);
+}
+
+.username-check, .toggle-password {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--txt);
+    margin-left: 10px;
+    padding: 10px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    color: var(--bg);
+    transition: box-shadow 0.3s ease;
+}
+
+.main-btn {
+    background: linear-gradient(45deg, var(--point), var(--point-hover));
+}
+
+.sub-btn {
+    background-color: var(--hover);
+    color: var(--txt);
+}
+
+.main-btn:hover, .sub-btn:hover {
+    background: var(--txt);
+    color: var(--bg);
+}
+
+.line {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.or::before,
+.or::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid var(--txt);
+}
+
+.line-text {
+    margin: 0 10px;
+    color: var(--txt);
+    font-weight: bold;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 62px;
+    height: 32px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--point);
+    transition: .4s;
+    border-radius: 32px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--bg);
+    transition: .3s;
+    border-radius: 50%;
+}
+
+input:checked + .slider:before {
+    transform: translateX(29px);
+    background: var(--bg);
+}
+
+.slider img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    width: 24px;
+    height: 24px;
+}
+
+.light-image {
+    right: 4px;
+}
+
+.dark-image {
+    left: 4px;
+}
+
+input:checked + .slider .light-image {
+    opacity: 0;
+}
+
+input:checked + .slider .dark-image {
+    opacity: 1;
+}
+
+input:not(:checked) + .slider .light-image {
+    opacity: 1;
+}
+
+input:not(:checked) + .slider .dark-image {
+    opacity: 0;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

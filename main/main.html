@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PICEL</title>
+    <link id="theme-link" rel="stylesheet" href="style.css">
+    <link rel="icon" href="../image/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+</head>
+<body>
+    <div class="container">
+        <div class="popup hidden">
+            <div class="popup-content">
+                <p>Do you want to log out?</p>
+                <button class="confirm-logout">Log Out</button>
+                <button class="cancel-logout">Cancel</button>
+            </div>
+        </div>
+        <div class="popup hidden">
+            <div class="popup-content">
+                <p>Are you sure you want to delete this?</p>
+                <button class="confirm-delete">Delete</button>
+                <button class="cancel-delete">Cancel</button>
+            </div>
+        </div>
+        <nav class="gnb">
+            <ul class="menu">
+                <li><a><img alt="Calendar" class="icon calendar-icon"><span class="today"></span></a></li>
+                <li><a><img alt="Clock" class="icon clock-icon"><span class="time-now"></span></a></li>
+                <li class="gnb-line"></li>
+                <li class="click-menu"><a href="#friend"><img alt="Friend" class="icon friend-icon">Friend</a></li>
+                <li class="click-menu"><a href="#chat"><img alt="Chat" class="icon chat-icon">Chat</a></li>
+                <li class="click-menu"><a href="#setting"><img alt="Setting" class="icon setting-icon">Setting</a></li>
+                <li class="click-menu notice-menu"><a><img alt="Notice" class="icon notice-icon">Notice</a></li>
+            </ul>
+            <div class="notice-popup hidden">
+                <ul>
+                    <li><img alt="Chat" class="icon chat-icon">John Doe</li>
+                    <li><img alt="Friend Request" class="icon friend-icon">Jane Smith</li>
+                </ul>
+            </div>
+            <li class="profile"><a>
+                <img src="../image/sample.jpg" alt="Profile-img">
+                <div class="profile-info">
+                    <div class="user-id">UserID1234</div>
+                    <div class="user-email">example@gmail.com</div>
+                </div>
+            </a></li>
+        </nav>
+        <div class="content">
+            <section id="friend" class="content-section">
+                <div class="list">
+                    <ul>
+                        <li class="friend-menu">
+                            <a href="#friend-online">
+                                <div class="list-menu">
+                                    <div class="list-main">Online</div>
+                                    <div class="list-sub">
+                                        Friends currently online
+                                        <span class="online-friend friend-count">5</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="friend-menu">
+                            <a href="#friend-all">
+                                <div class="list-menu">
+                                    <div class="list-main">All</div>
+                                    <div class="list-sub">
+                                        View all friends
+                                        <span class="all-friend friend-count">12</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="friend-menu">
+                            <a href="#add-friend">
+                                <div class="list-menu">
+                                    <div class="list-main">Add</div>
+                                    <div class="list-sub">
+                                        Sent Requests
+                                        <span class="sent-request friend-count">2</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="friend-menu">
+                            <a href="#friend-request">
+                                <div class="list-menu">
+                                    <div class="list-main">Request</div>
+                                    <div class="list-sub">
+                                        Received Requests
+                                        <span class="received-request friend-count">4</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="toggle-list">◀</button>
+                <section id="friend-online" class="friend-section">
+                    <div class="friend-list">
+                        <label class="friend-title">Online - <span class="online-friend friend-count">5</span></label>
+                        <div class="friend-item">
+                            <img src="../image/sample.jpg" alt="Profile" class="friend-img">
+                            <div class="friend-info">
+                                <div class="friend-name">James</div>
+                                <div class="friend-status online">Online</div>
+                            </div>
+                            <div class="request-confirm">
+                                <a href="#call-friend" class="click-icon call-friend"><img alt="Call" class="icon call-icon"></a>
+                                <a href="#chat-friend" class="click-icon chat-friend"><img alt="Chat" class="icon chat-icon"></a>                             
+                            </div>
+                        </div>
+                
+                    </div>
+                </section>
+                <section id="friend-all" class="friend-section">
+                    <div class="friend-list">
+                        <label class="friend-title">All Friends - <span class="all-friend friend-count">12</span></label>
+                        <div class="friend-item">
+                            <img src="../image/sample.jpg" alt="Profile" class="friend-img">
+                            <div class="friend-info">
+                                <div class="friend-name">James</div>
+                                <div class="friend-status online">Online</div>
+                            </div>
+                            <div class="request-confirm">
+                                <a href="#chat-friend" class="click-icon chat-friend"><img alt="Chat" class="icon chat-icon"></a>
+                                <a href="#delete-friend" class="click-icon decline-friend"><img alt="Delete" class="icon delete-icon"></a>   
+                            </div>
+                        </div> 
+                    </div>
+                </section>
+                <section id="add-friend" class="friend-section">
+                    <div class="friend-list">
+                        <div class="add-friend-container">
+                            <label for="friend-uid">Enter Friend's UID</label>
+                            <form id="add-friend-form">
+                                <input type="text" id="friend-uid" name="friend-uid" placeholder="Send a friend request using the user's UID">
+                                <button type="submit" class="send-friend-request-btn">Send Friend Request</button>
+                            </form>
+                        </div>
+                        <div class="sent-request-list">
+                            <label class="friend-title">Sent Requests - <span class="sent-request friend-count">2</span></label>
+                            <div class="friend-item">
+                                <img src="../image/sample.jpg" alt="Profile" class="friend-img">
+                                <div class="friend-info">
+                                    <div class="friend-name">James</div>
+                                    <div class="friend-status online">Online</div>
+                                </div>
+                                <div class="request-confirm">
+                                    <a href="#cancel-request" class="click-icon cancel-request"><img alt="Cancel" class="icon x-icon"></a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </section>
+
+                <section id="friend-request" class="friend-section">
+                    <div class="friend-list received-request-list">
+                        <label class="friend-title">Received Requests - <span class="received-friend friend-count">4</span></label>
+                        <div class="friend-item">
+                            <img src="../image/sample.jpg" alt="Profile" class="friend-img">
+                            <div class="friend-info">
+                                <div class="friend-name">Requesting Friend 1</div>
+                                <div class="friend-status offline">Offline</div>
+                            </div>
+                            <div class="request-confirm">
+                                <a href="#accept-friend" class="click-icon accept-friend"><img alt="Accept" class="icon confirm-icon"></a>
+                                <a href="#decline-friend" class="click-icon decline-friend"><img alt="Decline" class="icon x-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <section id="chat" class="content-section">
+                <div class="list">
+                    <div class="list-title">
+                        <p>Chat</p>
+                        <a href="#addchat" class="click-icon"><img alt="Add Chat" class="icon addchat-icon"></a>
+                    </div>
+                    <div class="search-container" type="text">
+                        <img alt="Search" class="icon search-icon">
+                        <input class="search" type="text" placeholder="Search chats...">
+                    </div>
+                    <ul>
+                        <li class="chat-menu">
+                            <a>
+                                <img src="../image/sample.jpg" class="chat-img">
+                                <div class="list-menu">
+                                    <div class="list-main">James</div>
+                                    <div class="list-sub">This is example. This is example. This is example. This is example. This is example. This is example.</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="chat-menu">
+                            <a>
+                                <img src="../image/sample.jpg" class="chat-img">
+                                <div class="list-menu">
+                                    <div class="list-main">James</div>
+                                    <div class="list-sub">This is example.</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="toggle-list">◀</button>
+                <div class="chat-window">
+                    <div class="chat-title">
+                        <div class="title-info">
+                            <img src="../image/sample.jpg">James
+                        </div>
+                        <div class="title-setting">
+                            <a href="#delete-chat" class="click-icon"><img class="icon delete-icon"></a>
+                            <a href="#edit-chat" class="click-icon"><img class="icon edit-icon"></a>
+                            <a href="#call" class="click-icon"><img class="icon call-icon"></a>
+                        </div>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="chat-log">
+                                <img src="../image/sample.jpg" alt="Profile Image">
+                                <div class="chat-log-txt">
+                                    <div class="log-name">James</div>
+                                    <div class="log-txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+                                    </div>
+                                    <div class="log-time">8/15/24 2:30 PM</div>
+                                    <div class="log-menu hidden">
+                                        <a href="#copy-message" class="copy-message">Copy</a>
+                                        <a href="#delete-message" class="delete-message">Delete</a>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="chat-log">
+                                <img src="../image/sample.jpg" alt="Profile Image">
+                                <div class="chat-log-txt">
+                                    <div class="log-name">James</div>
+                                    <div class="log-txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </div>
+                                    <div class="log-time">8/15/24 2:30 PM</div>
+                                    <div class="log-menu hidden">
+                                        <a href="#copy-message" class="copy-message">Copy</a>
+                                        <a href="#delete-message" class="delete-message">Delete</a>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="chat-log">
+                                <img src="../image/sample.jpg" alt="Profile Image">
+                                <div class="chat-log-txt">
+                                    <div class="log-name">James</div>
+                                    <div class="log-txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus.
+
+                                    </div>
+                                    <div class="log-time">8/15/24 2:30 PM</div>
+                                    <div class="log-menu hidden">
+                                        <a href="#copy-message" class="copy-message">Copy</a>
+                                        <a href="#delete-message" class="delete-message">Delete</a>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="chat-log">
+                                <img src="../image/sample.jpg" alt="Profile Image">
+                                <div class="chat-log-txt">
+                                    <div class="log-name">James</div>
+                                    <div class="log-txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+                                    </div>
+                                    <div class="log-time">8/15/24 2:30 PM</div>
+                                    <div class="log-menu hidden">
+                                        <a href="#copy-message" class="copy-message">Copy</a>
+                                        <a href="#delete-message" class="delete-message">Delete</a>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="chat-log">
+                                <img src="../image/sample.jpg" alt="Profile Image">
+                                <div class="chat-log-txt">
+                                    <div class="log-name">James</div>
+                                    <div class="log-txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    </div>
+                                    <div class="log-time">8/15/24 2:30 PM</div>
+                                    <div class="log-menu hidden">
+                                        <a href="#copy-message" class="copy-message">Copy</a>
+                                        <a href="#delete-message" class="delete-message">Delete</a>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="chat-log">
+                                <img src="../image/sample.jpg" alt="Profile Image">
+                                <div class="chat-log-txt">
+                                    <div class="log-name">James</div>
+                                    <div class="log-txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+                                    </div>
+                                    <div class="log-time">8/15/24 2:30 PM</div>
+                                    <div class="log-menu hidden">
+                                        <a href="#copy-message" class="copy-message">Copy</a>
+                                        <a href="#delete-message" class="delete-message">Delete</a>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="chat-log">
+                                <img src="../image/sample.jpg" alt="Profile Image">
+                                <div class="chat-log-txt">
+                                    <div class="log-name">James</div>
+                                    <div class="log-txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </div>
+                                    <div class="log-time">8/15/24 2:30 PM</div>
+                                    <div class="log-menu hidden">
+                                        <a href="#copy-message" class="copy-message">Copy</a>
+                                        <a href="#delete-message" class="delete-message">Delete</a>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="chat-log">
+                                <img src="../image/sample.jpg" alt="Profile Image">
+                                <div class="chat-log-txt">
+                                    <div class="log-name">James</div>
+                                    <div class="log-txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus.
+
+                                    </div>
+                                    <div class="log-time">8/15/24 2:30 PM</div>
+                                    <div class="log-menu hidden">
+                                        <a href="#copy-message" class="copy-message">Copy</a>
+                                        <a href="#delete-message" class="delete-message">Delete</a>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="chat-log">
+                                <img src="../image/sample.jpg" alt="Profile Image">
+                                <div class="chat-log-txt">
+                                    <div class="log-name">James</div>
+                                    <div class="log-txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+                                    </div>
+                                    <div class="log-time">8/15/24 2:30 PM</div>
+                                    <div class="log-menu hidden">
+                                        <a href="#copy-message" class="copy-message">Copy</a>
+                                        <a href="#delete-message" class="delete-message">Delete</a>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="chat-log">
+                                <img src="../image/sample.jpg" alt="Profile Image">
+                                <div class="chat-log-txt">
+                                    <div class="log-name">James</div>
+                                    <div class="log-txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    </div>
+                                    <div class="log-time">8/15/24 2:30 PM</div>
+                                    <div class="log-menu hidden">
+                                        <a href="#copy-message" class="copy-message">Copy</a>
+                                        <a href="#delete-message" class="delete-message">Delete</a>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" class="send-message" name="chat-message" placeholder="Type a message...">
+                        <button type="button" class="send-message-btn">Send<img alt="Send" class="icon send-icon"></button>
+                    </div>
+                </div>
+            </section>
+            <section id="setting" class="content-section">
+                <div class="list">
+                    <ul>
+                        <li class="setting-menu">
+                            <a href="#account-setting">
+                                <div class="list-menu">
+                                    <div class="list-main">Account Settings</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="setting-menu">
+                            <a href="#voice-sample-setting">
+                                <div class="list-menu">
+                                    <div class="list-main">My Voice Sample</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="toggle-list">◀</button>
+                <section id="account-setting" class="setting-section">
+                    <div class="setting-window">
+                        <div class="profile-container">
+                            <div class="profile-image-wrapper">
+                                <img src="../image/sample.jpg" alt="Profile Image" class="profile-image">
+                                <div class="profile-overlay">
+                                    <img alt="Upload Icon" class="icon editprofile-icon">
+                                </div>
+                                <input type="file" id="profile-image-upload" accept="image/*" style="display: none;">
+                            </div>
+                            <div class="account-info">
+                                <div class="my-nickname">UserID1234</div>
+                                <div class="edit-nickname">
+                                    <img alt="Edit Icon" class="icon edit-icon">
+                                </div>
+                            </div>
+                            <div class="toggle-switch">
+                                <label class="switch">
+                                    <input type="checkbox" id="mode-toggle">
+                                    <span class="slider">
+                                        <img src="../image/light.svg" alt="Light" class="light-image">
+                                        <img src="../image/dark.svg" alt="Dark" class="dark-image">
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-container">
+                            <div class="setting-item">
+                                <label for="uid">UID</label>
+                                <label for="my-uid">123456789</label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="language-change">Language</label>
+                                <select id="language-change">
+                                    <option value="en">English</option>
+                                    <option value="ko">한국어</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label for="setting-device">Setting Devices</label>
+                                <div class="setting-device">
+                                    <select id="speaker">
+                                        <option value="speaker1">Speaker 1</option>
+                                        <option value="speaker2">Speaker 2</option>
+                                    </select>
+                                    <select id="microphone">
+                                        <option value="mic1">Microphone 1</option>
+                                        <option value="mic2">Microphone 2</option>
+                                    </select>
+                                    <select id="camera">
+                                        <option value="cam1">Webcam 1</option>
+                                        <option value="cam2">Webcam 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="setting-item">
+                                <label for="password-change">Password</label>
+                                <button id="password-change">Change Password</button>
+                            </div>
+                            <div class="setting-item">
+                                <button id="save-btn">Save</button>
+                            </div>
+                            <div class="setting-item">
+                                <button class="logout-btn">Log Out</button>
+                                <button class="delete-account-btn">Delete Account</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="voice-sample-setting" class="setting-section">
+                    <div class="setting-window">
+                        
+                    </div>
+                </section>
+            </section>
+        </div>
+    </div>
+    <script type="text/javascript" src="../theme.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
+</body>
+</html>

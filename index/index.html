@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PICEL</title>
+    <link id="theme-link" rel="stylesheet" href="style.css">
+    <link rel="icon" href="../image/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h1>PICEL</h1>
+            <h2>Platform for<br>Interpreting and<br>Connecting<br>Every<br>Language</h2>
+            <br>
+            <div class="toggle-switch">
+                <label class="switch">
+                    <input type="checkbox" id="mode-toggle">
+                    <span class="slider">
+                        <img src="../image/light.svg" alt="Light" class="light-image">
+                        <img src="../image/dark.svg" alt="Dark" class="dark-image">
+                    </span>
+                </label>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div id="login-section">
+                <h2>WELCOME</h2>
+                <form>
+                    <div class="input-container">
+                        <input class="username" type="text" name="username" placeholder="username">
+                        <br>
+                    </div>
+                    <div class="input-container">
+                        <input class="password" type="password" name="password" placeholder="password">
+                        <button type="button" class="toggle-password" onclick="togglePassword()">Show</button>
+                        <br>
+                    </div>
+                    <input type="submit" class="btn main-btn" value="Log In">
+                </form>
+                <br>
+                <div class="line or">
+                    <span class="line-text">or</span>
+                </div>
+                <br>
+                <button class="btn sub-btn" onclick="showSignup()">Sign Up</button>
+            </div>
+
+            <div id="signup-section" style="display:none;">
+                <h2>SIGN UP</h2>
+                <form>
+                    <h6>Username</h6>
+                    <div class="input-container">
+                        <input class="username" type="text" name="username">
+                        <button type="button" class="username-check">Check</button>
+                        <br>
+                    </div>
+                    <h6>Password</h6>
+                    <div class="input-container">
+                        <input class="password" type="password" name="password">
+                        <br>
+                    </div>
+                    <h6>Confirm Password</h6>
+                    <div class="input-container">
+                        <input class="confirm-password" type="password" name="confirm-password">
+                        <img src="../image/confirm_light.svg" alt="Confirm" class="icon confirm-icon" style="display: none">
+                        <img src="../image/x_light.svg" alt="X" class="icon x-icon" style="display: none;">
+                    </div>
+                    <input type="submit" class="btn main-btn" value="Sign Up">
+                    <div class="line"></div>
+                    <button class="btn sub-btn" onclick="showLogin()">Back to Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../theme.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
+</body>
+</html>
